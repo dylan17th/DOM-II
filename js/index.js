@@ -1,4 +1,15 @@
 // Your code goes here
+//Event Listeners used 
+// 1.mouseover
+// 2.click
+// 3.dblclick
+// 4.focus
+// 5.blur
+// 6.mouseleave
+// 7.mouseenter
+// 8.load
+// 9.scroll
+// 10.keydown
 
 // creating variables for the navigation items 
 const navItems = document.querySelectorAll('.nav-link');
@@ -140,3 +151,92 @@ topBus.src = 'img/gary-tou-SW6sDxV27CA-unsplash.jpg';
 
 //created the event listener for the picture change
 topBus.addEventListener('click', changePhoto);
+
+//created variabled for the .destinations class
+const destinations = document.querySelectorAll('.destination');
+
+//created a function for the borders to turn yellow for the desination class
+function yellowBorder(event){
+    event.target.style.border = '#17A2B8 solid 5px';
+    event.target.style.padding = '1rem';
+    event.target.style.borderRadius = '10px';
+}
+
+//looped through the destination node list to mkae them all change when the mouse enters
+destinations.forEach( item=> {
+    item.addEventListener('mouseenter', yellowBorder)})
+
+//creating a function for when  the mouse out
+function mouseOutColor(event){
+    event.target.style.border = '';
+    event.target.style.padding = '';
+    event.target.style.borderRadius = '';
+}
+
+//creating an event listener for the mouse out 
+destinations.forEach( item=> {
+item.addEventListener('mouseleave', mouseOutColor)})
+
+//declearing the main nav as a varaible
+const mainNav = document.querySelector('.main-navigation')
+
+//creating a function to change the nav color when the page is fully loaded
+function greyNav(){
+mainNav.style.backgroundColor = 'lightgrey';
+}
+
+//creating an event listener for the grey nav loading event
+window.addEventListener('load', greyNav)
+
+//created a variable for the body
+const body = document.querySelector('body');
+
+//created a function that based on the scroll position the background will change colors
+function backgroundChange(){
+    const scroll = window.scrollY;
+    if(scroll > 600){
+        body.style.backgroundColor = 'yellow';
+    }if (scroll < 600){
+        body.style.backgroundColor ='green';
+    }
+}
+
+//created an event listener for the scroll event
+window.addEventListener('scroll', backgroundChange)
+
+//changes the color of all the text on the page depending on which key you press down
+function rainbowKeys(event){
+    if (event.code == 'KeyP'){
+        body.style.color = "purple";
+    } if (event.code == 'KeyO'){
+     body.style.color = "orange";
+ } if (event.code == 'KeyR'){
+     body.style.color = "red";
+ } if (event.code == 'KeyW'){
+     body.style.color = "white";
+ } if (event.code == 'KeyD'){
+     body.style.color = "dodgeblue";
+ } if (event.code == 'KeyF'){
+     body.style.color = "firered";
+ } if (event.code == 'KeyP'){
+     body.style.color = "purple";
+ } if (event.code == 'KeyG'){
+     body.style.color = "darkGreen";
+ } if (event.code == 'KeyS'){
+     body.style.color = "seaGreen";
+ }if (event.code == 'KeyH'){
+     body.style.color = "HotPink";
+ } if (event.code == 'KeyC'){
+     body.style.color = "coral";
+ } if (event.code == 'KeyV'){
+     body.style.color = "violet";
+ } if (event.code == 'KeyB'){
+     body.style.color = "blue";
+ } if (event.code == 'KeyM'){
+     body.style.color = "Mango";
+ } if (event.code == 'KeyP'){
+     body.style.color = "purple";
+ }}
+
+//created an event that changes the color depending on the button you push down 
+window.addEventListener('keydown', rainbowKeys)
