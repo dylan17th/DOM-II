@@ -240,3 +240,8 @@ function rainbowKeys(event){
 
 //created an event that changes the color depending on the button you push down 
 window.addEventListener('keydown', rainbowKeys)
+
+destinations.forEach(item => {
+    item.addEventListener('click', function(){
+    item.style.color ='white';
+    })})
